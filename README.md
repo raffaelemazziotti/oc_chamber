@@ -5,7 +5,7 @@ Here we describe a fully 3D printable device that is able to perform operant con
 ## Assembling & Installation
 
 You can find 3D printed models [here](https://www.thingiverse.com/thing:3975752)
-In figures/EXPLODED VIEW.jpg there is an intuiteve diagram of the assembling scheme.
+In [figures/EXPLODED VIEW.jpg](https://github.com/raffapaz/oc_chamber/blob/master/figures/EXPLODED%20VIEW.jpg) there is an intuiteve diagram of the assembling scheme.
 
 A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing) 
 
@@ -15,15 +15,21 @@ Then you need:
 * a 220 ohm resistor for the LED matrix
 * a piece of M8 thread (~15 cm) 
 
-Connect all the components as described in figures/diagram_scheme.png
+Connect all the components as described in [figures/diagram_scheme.png](https://github.com/raffapaz/oc_chamber/blob/master/figures/diagram_scheme.png)
 
 To install the software Raspberry Pi just download or copy the entire code in a folder of the raspian OS.
 
-run the command:
+Load on the arduino uno the sketch called skinner.ino
+
+to run the code type in terminal:
 
 ```
 python3 cvConditioningTracking.py
 ```
+
+## Shortcuts
+* p: exit
+* s: stop trial
 
 
 
@@ -37,7 +43,9 @@ python3 cvConditioningTracking.py
 
 ## References
 
-Detailed instructions for the construction of the apparatus can be found here:
+Detailed description of the apparatus can be found here:
 [Fully 3D printable device for automated operant conditioning in the mouse](https://docs.google.com/document/d/1ROyHVp2HN-OSPP7uKdv-rDPUn_NWunvdGDlKdQuhvm4/edit?usp=sharing)
 
+## Contacts
+For any info don't hesitate to contact me at raffaele.mazziotti@in.cnr.it 
 
