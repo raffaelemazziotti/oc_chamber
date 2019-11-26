@@ -1,25 +1,33 @@
 # Operant Conditioning Chamber
+
 Operant conditioning is a classical paradigm used in experimental psychology in which animals learn to perform an action in order to achieve a reward. By using this paradigm, it is possible to extract learning curves and measure accurately reaction times.
 Here we describe a fully 3D printable device that is able to perform operant conditioning on  freely moving mice, while performing real-time tracking of the animal position.
 
 ## Assembling & Installation
 
-You can find 3D printed models [here](https://www.thingiverse.com/thing:3975752)
+You can find 3D printed models [here](https://www.thingiverse.com/thing:3975752).  
 In [figures/EXPLODED VIEW.jpg](https://github.com/raffapaz/oc_chamber/blob/master/figures/EXPLODED%20VIEW.jpg) there is an intuiteve diagram of the assembling scheme.
 
-A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing) 
+A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing)
 
 Then you need:
+
 * a 1000 µF capacitor
 * two 25 Mohm resistors for the touch buttons
 * a 220 ohm resistor for the LED matrix
-* a piece of M8 thread (~15 cm) 
+* a piece of M8 thread (~15 cm)
 
 Connect all the components as described in [figures/diagram_scheme.png](https://github.com/raffapaz/oc_chamber/blob/master/figures/diagram_scheme.png)
 
-To install the software Raspberry Pi just download or copy the entire code in a folder of the raspian OS.
+To install the software Raspberry Pi just download or copy the entire code in a folder of the raspian OS.  
 
-Load on the arduino uno the sketch called skinner.ino
+Required libraries:
+
+* [picamera](https://picamera.readthedocs.io/en/release-1.13/)
+* [pySerial](https://pythonhosted.org/pyserial/)
+* [openCV](https://pypi.org/project/opencv-python/)
+
+Load on the arduino uno the sketch called [skinner.ino](https://github.com/raffapaz/oc_chamber/tree/master/arduino_files/skinner)
 
 to run the code type in terminal:
 
@@ -27,15 +35,14 @@ to run the code type in terminal:
 python3 cvConditioningTracking.py
 ```
 
-## Shortcuts
-* p: exit
-* s: stop trial
+## Keyboard Shortcuts
 
-
+* **p**: exit
+* **s**: stop trial
 
 ## Authors
 
-* **Raffaele Mazziotti**  [raffapaz](https://github.com/raffapaz) 
+* **Raffaele Mazziotti**  [raffapaz](https://github.com/raffapaz)
 * **Giulia Sagona**  
 * **Leonardo Lupori**
 * **Virginia Martini**
@@ -47,5 +54,5 @@ Detailed description of the apparatus can be found here:
 [Fully 3D printable device for automated operant conditioning in the mouse](https://docs.google.com/document/d/1ROyHVp2HN-OSPP7uKdv-rDPUn_NWunvdGDlKdQuhvm4/edit?usp=sharing)
 
 ## Contacts
-For any info don't hesitate to contact me at raffaele.mazziotti@in.cnr.it 
 
+For any info don't hesitate to contact us at raffaele.mazziotti@in.cnr.it
