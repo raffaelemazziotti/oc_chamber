@@ -1,0 +1,17 @@
+Event: left	Answer: yes	RT: 3193	Time: 12:43:06_16/01/2018
+Event: left	Answer: yes	RT: 7866	Time: 12:43:35_16/01/2018
+Event: left	Answer: yes	RT: 5257	Time: 12:44:11_16/01/2018
+Event: right	Answer: no	RT: 20634	Time: 12:45:20_16/01/2018
+Event: right	Answer: yes	RT: 12671	Time: 12:46:19_16/01/2018
+Event: right	Answer: yes	RT: 3780	Time: 12:47:11_16/01/2018
+Event: right	Answer: no	RT: 10607	Time: 12:48:02_16/01/2018
+Event: right	Answer: yes	RT: 3707	Time: 12:48:35_16/01/2018
+Event: right	Answer: yes	RT: 6167	Time: 12:49:12_16/01/2018
+Event: right	Answer: yes	RT: 1848	Time: 12:49:25_16/01/2018
+Event: left	Answer: yes	RT: 9011	Time: 12:50:12_16/01/2018
+Event: left	Answer: yes	RT: 3408	Time: 12:50:26_16/01/2018
+Event: right	Answer: yes	RT: 7020	Time: 12:51:15_16/01/2018
+Event: right	Answer: yes	RT: 11329	Time: 12:52:08_16/01/2018
+Event: left	Answer: yes	RT: 1433	Time: 12:52:43_16/01/2018
+Event: left	Answer: yes	RT: 1328	Time: 12:52:58_16/01/2018
+Event: right	Answer: no	RT: 185	Time: 12:53:12_16/01/2018

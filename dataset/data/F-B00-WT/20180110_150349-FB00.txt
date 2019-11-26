@@ -1,0 +1,17 @@
+Event: Reward	Answer: reward	RT: NaN	Time: 14:53:46_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:54:09_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:54:28_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:55:19_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:55:51_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:56:15_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:56:58_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:57:56_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:58:42_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 14:59:24_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:00:04_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:00:30_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:00:46_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:01:09_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:01:46_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:02:12_10/01/2018
+Event: Reward	Answer: reward	RT: NaN	Time: 15:03:01_10/01/2018

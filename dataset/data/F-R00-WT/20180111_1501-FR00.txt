@@ -1,0 +1,13 @@
+Event: both	Answer: both_SX	RT: 575	Time: 14:51:58_11/01/2018
+Event: both	Answer: both_DX	RT: 34594	Time: 14:52:37_11/01/2018
+Event: both	Answer: both_DX	RT: 20456	Time: 14:53:36_11/01/2018
+Event: both	Answer: both_DX	RT: 9880	Time: 14:54:01_11/01/2018
+Event: both	Answer: both_DX	RT: 19471	Time: 14:54:43_11/01/2018
+Event: both	Answer: both_SX	RT: 3386	Time: 14:55:28_11/01/2018
+Event: both	Answer: both_SX	RT: 4494	Time: 14:55:56_11/01/2018
+Event: both	Answer: both_DX	RT: 7422	Time: 14:56:24_11/01/2018
+Event: both	Answer: both_DX	RT: 8174	Time: 14:56:45_11/01/2018
+Event: both	Answer: both_DX	RT: 22818	Time: 14:57:54_11/01/2018
+Event: both	Answer: both_DX	RT: 13466	Time: 14:58:36_11/01/2018
+Event: both	Answer: both_SX	RT: 8845	Time: 14:59:08_11/01/2018
+Event: both	Answer: both_DX	RT: 4413	Time: 14:59:58_11/01/2018

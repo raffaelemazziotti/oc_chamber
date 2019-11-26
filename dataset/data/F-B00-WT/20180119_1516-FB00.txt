@@ -1,0 +1,27 @@
+Event: right	Answer: no	RT: 17	Time: 15:10:09_19/01/2018
+Event: right	Answer: no	RT: 122	Time: 15:10:16_19/01/2018
+Event: left	Answer: yes	RT: 119	Time: 15:10:26_19/01/2018
+Event: right	Answer: yes	RT: 1402	Time: 15:10:38_19/01/2018
+Event: left	Answer: yes	RT: 225	Time: 15:10:45_19/01/2018
+Event: right	Answer: yes	RT: 2013	Time: 15:10:59_19/01/2018
+Event: left	Answer: yes	RT: 940	Time: 15:11:09_19/01/2018
+Event: left	Answer: yes	RT: 19	Time: 15:11:37_19/01/2018
+Event: right	Answer: no	RT: 111	Time: 15:11:55_19/01/2018
+Event: left	Answer: yes	RT: 2426	Time: 15:12:05_19/01/2018
+Event: left	Answer: yes	RT: 152	Time: 15:12:12_19/01/2018
+Event: left	Answer: yes	RT: 124	Time: 15:12:23_19/01/2018
+Event: right	Answer: no	RT: 108	Time: 15:12:33_19/01/2018
+Event: right	Answer: yes	RT: 1566	Time: 15:12:42_19/01/2018
+Event: left	Answer: yes	RT: 16	Time: 15:12:49_19/01/2018
+Event: left	Answer: yes	RT: 1387	Time: 15:12:59_19/01/2018
+Event: right	Answer: no	RT: 18	Time: 15:13:26_19/01/2018
+Event: right	Answer: yes	RT: 1757	Time: 15:14:21_19/01/2018
+Event: right	Answer: yes	RT: 7546	Time: 15:14:37_19/01/2018
+Event: left	Answer: yes	RT: 2174	Time: 15:14:45_19/01/2018
+Event: right	Answer: yes	RT: 1132	Time: 15:14:55_19/01/2018
+Event: right	Answer: yes	RT: 32	Time: 15:15:03_19/01/2018
+Event: right	Answer: yes	RT: 1575	Time: 15:15:15_19/01/2018
+Event: right	Answer: no	RT: 2559	Time: 15:15:25_19/01/2018
+Event: right	Answer: no	RT: 1507	Time: 15:15:59_19/01/2018
+Event: left	Answer: yes	RT: 1423	Time: 15:16:07_19/01/2018
+
