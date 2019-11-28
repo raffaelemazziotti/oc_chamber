@@ -43,7 +43,7 @@ python3 cvConditioningTracking.py
 
 ## Dataset & Data Analysis
 
-[Dataset]() folder contains our raw data described in this [paper](#references) and composed of 6 subjects. Each subject is containet in its own folder and coded using the scheme: CAGE-LABEL-GENO. Furthermore, there are two Jupyter Notebooks with an example on how you can read txt output files in python as [pandas](https://pandas.pydata.org/) datasets.
+[Dataset]() folder contains our raw data described in this [paper](#references) and composed of 6 subjects. Each subject is contained in its own folder and coded using the scheme: CAGE-LABEL-GENO. Furthermore, there are two Jupyter Notebooks with an example on how you can read txt output files in python as [pandas](https://pandas.pydata.org/) dataframes.
 
 * **data:** contains folders representing subjects. In the folder there are .txt files with fields
     * Event - the type of event (both,single)
