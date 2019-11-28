@@ -59,7 +59,7 @@ The rest of the lines contain
 
 ## Authors
 
-* **Raffaele Mazziotti**  - [raffapaz](https://github.com/raffapaz)
+* **Raffaele Mazziotti**  - [raffapaz](https://github.com/raffaelemazziotti)
 * **Giulia Sagona**  
 * **Leonardo Lupori** - [leonardolupori](https://github.com/leonardolupori)
 * **Virginia Martini**
