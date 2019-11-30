@@ -10,7 +10,7 @@ In [figures/EXPLODED VIEW.jpg](https://github.com/raffapaz/oc_chamber/blob/maste
 
 A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing)
 
-Then you need:
+In addition you need:
 
 * a 1000 µF capacitor
 * two 25 Mohm resistors for the touch buttons
