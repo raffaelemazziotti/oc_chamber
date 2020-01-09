@@ -5,7 +5,7 @@ Here we describe a fully 3D printable device that is able to perform operant con
 
 ## Assembling & Installation
 
-You can find 3D printed models [here](https://www.thingiverse.com/thing:3975752).  
+You can find 3D printed models [here](3D_models/) or [here](https://www.thingiverse.com/thing:3975752).  
 In [figures/EXPLODED VIEW.jpg](https://github.com/raffapaz/oc_chamber/blob/master/figures/EXPLODED%20VIEW.jpg) there is an intuitive diagram of the assembling scheme.
 
 A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing)
