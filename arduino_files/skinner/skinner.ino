@@ -4,6 +4,9 @@
 //  3   Dot Stim Both [ Double dots - No wrong response ]
 //  1   Dot Stim Left [One dot on the left]
 //  2   Dot Stim Right [One dot on the right]
+//  5   LCD - BOTH buttons trigger a reward
+//  6   LCD - LEFT button triggers a reward
+//  7   LCD - RIGHT button triggers a reward
 //  13  Dot Stim Both [Extinction] -stub [No reward]
 //  11  Dot Stim Left [Extinction] -stub [One dot on the left - No reward]
 //  12  Dot Stim Right [Extinction] -stub [One dot on the right - No reward]
@@ -76,7 +79,34 @@ void loop() {
         }
       }
       clearScreen();
-    }else if (cmd ==11){  // Dot Stim Left [Extinction] 
+    }else if (cmd == 6){  // LCD Stim Left
+      startTime=millis();
+      while (true){
+        cdx = checkDx();
+        csx = checkSx();
+        if (csx >= thrsx | cdx >= thrdx){
+          reactionTime = millis() - startTime;
+          if (csx >= thrsx){
+            correct();
+            Serial.print("yes : ");
+            Serial.println(reactionTime,DEC);
+            reward();
+            
+          }else if(cdx >= thrdx){
+            wrong();
+            Serial.print("no : ");
+            Serial.println(reactionTime,DEC);
+            
+            }
+          
+          break;
+          }else if(Serial.available()){
+            Serial.println("skipped");
+            break;
+        }
+      }
+      clearScreen();
+    } else if (cmd ==11){  // Dot Stim Left [Extinction] 
       clearScreen();
       drawLeft();
       startTime=millis();
@@ -137,7 +167,7 @@ void loop() {
         }
       }
       clearScreen();
-    }else if(cmd==2){ // Dot Stim Right
+    } else if(cmd==2){ // Dot Stim Right
       clearScreen();
       drawRight();
       startTime=millis();
@@ -159,6 +189,32 @@ void loop() {
             reward();
             delay(stimPermanenceRight);
             
+          }
+          
+          break;
+          }else if(Serial.available()){
+            Serial.println("skipped");
+            break;
+        }
+      }
+      clearScreen();
+    } else if(cmd==7){ // LCD Stim Right
+      startTime=millis();
+      while (true){
+        cdx = checkDx();
+        csx = checkSx();
+        if (csx >= thrsx | cdx >= thrdx){
+          reactionTime = millis() - startTime;
+          if (csx >= thrsx){
+            wrong();
+             Serial.print("no : ");
+            Serial.println(reactionTime,DEC);
+           
+          }else if(cdx >= thrdx){
+            correct();
+            Serial.print("yes : ");
+            Serial.println(reactionTime,DEC);
+            reward();
           }
           
           break;
@@ -246,6 +302,35 @@ void loop() {
             Serial.println(reactionTime,DEC);
             reward();
             delay(stimPermanenceRight);
+            
+          }else if(cdx >= thrdx){
+            correct();
+            Serial.print("both_DX : ");
+            Serial.println(reactionTime,DEC);
+            reward();
+            delay(stimPermanenceRight);
+            
+          }
+          
+          break;
+          }else if(Serial.available()){
+              Serial.println("skipped");
+              break;
+          }
+      }
+      clearScreen();
+    }else if(cmd==5){ // LCD Stim Both
+      startTime=millis();
+       while (true){
+        cdx = checkDx();
+        csx = checkSx();
+        if (csx >= thrsx | cdx >= thrdx){
+          reactionTime = millis() - startTime;
+          if (csx >= thrsx){
+            correct();
+            Serial.print("both_SX : ");
+            Serial.println(reactionTime,DEC);
+            reward();
             
           }else if(cdx >= thrdx){
             correct();
