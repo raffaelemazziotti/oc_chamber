@@ -5,11 +5,12 @@ import glob
 from serial.tools import list_ports
 import time
 
+# LOW LEVEL ARDUINO COMMUNICATION 
 
 def connect(port=None,baud=9600):
     if port is None:
         obj = ports()
-        port = obj[0]
+        port = obj[0] # CONNECTS AUTOMATICALLY WITH THE FIRST SERIAL PORT
         
     connection = serial.Serial(port,baud,bytesize=8, parity='N', stopbits=1, timeout=None, rtscts=0)  # open serial port
     time.sleep(3)
@@ -31,13 +32,13 @@ def wait(connection,timeout=10):
     while connection.in_waiting==0:
         if (time.time() - start_time)>=timeout:
             return False
-        time.sleep(.01);
+        time.sleep(.01)
         
     return True
 
 def infWait(connection):
     while connection.in_waiting==0:
-        time.sleep(.01);
+        time.sleep(.01)
         
 def flushInput(connection):
     connection.flushInput()
@@ -85,4 +86,3 @@ if __name__=="__main__":
 #===============================================================================
 
 
-#print(ports())

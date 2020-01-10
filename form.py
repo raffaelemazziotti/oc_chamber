@@ -1,4 +1,11 @@
+# This script contains the code to the preference GUI
+# that loads at the beginning of the program
+# It allows to set test parameters
+# all the preferences are stored in a file called 'formPref.ini'
+# in the same path of the program
 
+
+# Python 2.7 and 3 compatibility
 try:
     from Tkinter import *
     import tkFileDialog
@@ -27,7 +34,7 @@ class Form:
         self.varRecPath = StringVar()
         self.varConditions= StringVar()
         self.varCriterion= IntVar() 
-        self.varLevel=DoubleVar() # normalizzato da 0 a 1
+        self.varLevel=DoubleVar() 
         self.varHistory=IntVar()
         
         self.varFilename.set(self.prf.get('filename'))
@@ -184,6 +191,8 @@ class Form:
             
             return res
 
+# this class manage the creation of a preference file called 'formPref.ini'
+# that is stored in the same path of the program
 class prefs:
     def __init__(self):
         self.filename = 'formPref.ini'
@@ -227,11 +236,10 @@ class prefs:
 
 
 
-
+# EXAMPLE ON HOW TO USE THE FORM CLASS
 if __name__=='__main__':
     
     form = Form()
     print(form.results())
-    #prf = prefs()
-    #print(prf.getConditions())
+    
     

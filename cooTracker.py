@@ -13,9 +13,14 @@ MEDIAN=3
 DIFFS=4
 MAX=5
 MIN=6
-
 EXT='.txt'  # Output file extension
 
+# THIS CLASS MANAGE TRACKING DATA 
+#
+
+
+
+# COORDINATES WITH TIMESTAMP
 class coo():
     def __init__(self,x=0,y=0,t=None,info='NaN'):
         self.x = x
@@ -34,7 +39,8 @@ class coo():
         else:
             info = self.info
         return str(self.time) + '\t' + str(self.x) + '\t' + str(self.y) + '\t' + info
-    
+
+# LIST OF COORDINATES WITH TIMESTAMP  
 class coolist():
     def __init__(self,coo = None,rect=None):
         self.coos=list()
@@ -90,10 +96,6 @@ class coolist():
         for ci in self.coos:
             res.append(ci.time)
         return res
-    
-    # mode: 1->sum [somma il tragitto] 
-    # mode: 2->mean [media tragitto] 
-    # mode: 3->median [mediana tragitto]
     
     def path(self,mode = MEAN):
         ptdiff = lambda p1,p2: (p1[0]-p2[0], p1[1]-p2[1])
@@ -153,28 +155,9 @@ class coolist():
                     self.rect=(int(l[1]),int(l[2]),int(l[3]),int(l[4]))
                     continue
                 self.add(int(l[1]),int(l[2]),t=float(l[0]),info=l[3])
-    
 
-# rect dell'arena dall'immagine. restituisce (x,y,w,h) #TOO NOISE
-def findArena(img):
-    img = cv2.bilateralFilter(img, 7, 17, 17)
-    img = cv2.Canny(img, 30, 200)
-    _,cnts,_= cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:10]
-    screenCnt = None
-    for c in cnts:
-        # approximate the contour
-        peri = cv2.arcLength(c, True)
-        approx = cv2.approxPolyDP(c, 0.02 * peri, True)
-        area = cv2.contourArea(c)
-        # if our approximated contour has four points, then
-        # we can assume that we have found our screen
-        if len(approx) == 4 and area > 25000:
-            screenCnt = approx
-            break
-    x,y,w,h = cv2.boundingRect(screenCnt)
-    return (x,y,w,h)
 
+# FIND ARENA BORDERS USING TEMPLATE MATCHING 
 def templateArena(img,template='template.jpg'):
     template = cv2.imread(template,0)
     wi, he = template.shape[::-1]
@@ -193,7 +176,8 @@ def templateArena(img,template='template.jpg'):
 
 if __name__=='__main__':
     c = coolist(rect=(2,2,10,7))
-    c.read('/home/pi/Documents/cvConditioningData/trackerDATA/20180101_1818-tracker-prrrova3.txt')
+    print(c)
+    
 
 
     

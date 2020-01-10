@@ -10,30 +10,38 @@ import numpy
 import os
 import cooTracker as trk
 
-frm = form.Form()
+# load the GUI with test preferences
+frm = form.Form() 
 prefs =frm.results()
 if not prefs:
     print('Aborted by user.')
     sys.exit()
-    
-task = PERMUTATION  # TRAINING or PERMUTATION 
-deltaThresh=50
+
+# set this variable  TRAINING or PERMUTATION 
+task = PERMUTATION   
+# COMPUTER VISION PARAMETERS
+deltaThresh=50 
 smallestObj=300     
 biggestObj=20000 
+# TRACKING MARKER
 radius=25
 color=(0,0,255)
 thickness=1
+
+# IMAGE RESOLUTION
 resolution=(208,208)
 history=int(prefs['history'])
+
+# ACTIVE ZONE BORDER 
 lev=resolution[0]*float(prefs['level'])
 posTracker= True
 
 
-criterion = prefs['criterion'] # numero di frames per far scattare il trial [Number of frames for the active zone criterion]
+criterion = prefs['criterion'] # Number of frames required to trigger a trial
 if prefs['recfile']:
     recording = True
     print('recording enabled')
-    filename = prefs['recfile'] # Nome per filename video di default [video file name]
+    filename = prefs['recfile'] # video file name
     videopath = prefs['recpath'] 
 else:
     recording = False
@@ -42,10 +50,12 @@ else:
 if prefs['filename']:    
     sessionFile= prefs['filename'] # default session name
     sessionpath = prefs['filepath'] # default path
-    
+
+# maximal framerate
 framerate=30
 conditions = prefs['conditions']
 
+# CAMERA INITIALIZATION
 print('Initializing:')
 print('- camera')
 cap = PiVideoStream(resolution=resolution,framerate=framerate)
@@ -56,18 +66,22 @@ fgbg = cv2.createBackgroundSubtractorKNN(history=history,detectShadows=False)
 erodeKernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(2,2))
 kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(10,10))
 
+# Arduino INITIALIZATION
 print('- Arduino Connection')
 arduino = Arduino()
+# Trainer INITIALIZATION
 trainer = Trainer(conditions,task)
 
 
-## FILENAME
+## TRACKING FILENAME
 if filename is None:
     filename ='/home/pi/Videos/' + time.strftime("%Y%m%d_%H%M%S-") + 'tracker'
-## RECORDING
+## RECORDING FILENAME 
 if recording:
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
     out = cv2.VideoWriter( os.path.join(videopath,time.strftime("%Y%m%d_%H%M%S-") + filename +'.avi'), fourcc, framerate, resolution )
+
+# LCD - open screen window
 
 currentTime=time.time()
 prevTime = time.time()
@@ -75,6 +89,7 @@ fps=None
 counter=0
 TTLactive = True
 cv2.namedWindow('Frame', cv2.WINDOW_FREERATIO)
+# VIDEOTRACKING CALIBRATION
 if posTracker:
     print('- Tracking Variables')
     print('     Finding arena: please wait...')
@@ -120,11 +135,12 @@ for c in range(0,history):
         print('- Skipping calibration...')
         break
 ttl=0
+
+# PROCEDURE
 while True:
     frame = cap.read()
     frame = imutils.rotate(frame,180)
 
-    
     fps = 1.0/(currentTime-prevTime)
     prevTime = currentTime
     currentTime=time.time()
@@ -132,8 +148,9 @@ while True:
     fgmask = fgbg.apply(frame,learningRate=0)
     thresh = cv2.threshold(fgmask, deltaThresh, 255,cv2.THRESH_BINARY)[1]
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_ERODE, kernel=erodeKernel)
-    #thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel=kernel)
+    
     (_,cnts, _) = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    
     largestArea=0
     largestObject=None
     for c in cnts:
@@ -155,6 +172,7 @@ while True:
             counter=0
             TTLactive=True
             ttl=0
+            # LCD - REFRESH DISPLAY
         else:
             if arduino.isWaiting():
                 if ttl=='left': # or ttl=='vert' or ttl=='many':
@@ -165,11 +183,13 @@ while True:
             counter=0
         if posTracker:
             xytracking.add(X,Y,info=ttl)
+            
     # ACTION
     if counter >=criterion:
         print('TTL')
         ttl = trainer.next(arduino.session)
         print(ttl)
+        # LCD - SHOW STIMULUS
         arduino.event(ttl)
         counter=0
         TTLactive=False

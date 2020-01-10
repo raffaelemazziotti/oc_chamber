@@ -4,22 +4,27 @@ import time
 from skinnerTrial import *
 import threading
 
+# HIGH LEVEL Arduino COMMUNICATION  
 
 class Arduino():
 
     def __init__(self,port=None):
+        # CONNECTION 
         self.com = libSerial.connect(port)
-        time.sleep(1)
-        self.casey = ['yes','y','e','s','ye','ys','es']
+        time.sleep(1) # REQUIRED TO WAIT FOR ARDUINO CONNECTION 
+
+        # THIS IS REQUIRED BECAUSE SOMETIMES ARDUINO RETURNS PARTIAL EVENTS
+        self.casey = ['yes','y','e','s','ye','ys','es']  
         self.casen = ['no','n','o']
         self.caseBoth= ['both_dx', 'both_sx']
+
         self.answer=threading.Thread()
-        self.session = ListTrial()
+        self.session = ListTrial() # LIST OF TRIALS
         
     def disconnect(self):
         self.com.close
 
-    ## RESTITUISCE UN TRIAL
+    ## RETURNS A TRIAL
     def read(self,event = None):
         libSerial.flushInput(self.com)
         time.sleep(.1)
@@ -44,7 +49,7 @@ class Arduino():
                 print(trial.getStr())
             else:
                 print(msg)
-
+    # SEND EVENT
     def event(self,seq=None):
         if seq is not None:
             print('Sending event: ',seq)
@@ -54,6 +59,7 @@ class Arduino():
             self.answer=threading.Thread(target=self.read,kwargs=dict(event=seq))
             self.answer.start()
 
+    # WAIT FOR RESPONSE
     def wait(self):
         if self.answer.isAlive():
             self.answer.join()
@@ -61,6 +67,7 @@ class Arduino():
     def isWaiting(self):
         return self.answer.isAlive()
     
+    # CONVENIENCE FUNCTION TO CONVERT STRINGS TO ARDUINO COMMANDS
     def seq2cmd(self,argument):
         switcher = {
             'l':'1','r':'2','b':'3','f':'5','m':'6','h':'7','v':'8',
@@ -71,6 +78,7 @@ class Arduino():
             }
         return switcher.get(argument.lower(), 0)
     
+    # CONVENIENCE FUNCTION TO CONVERT ARDUINO COMMANDS TO STRINGS
     def cmd2seq(self,argument):
         switcher = {
             '1':'left','2':'right','3':'both','5':'few','6':'many'
@@ -79,23 +87,18 @@ class Arduino():
         return switcher.get(argument.lower(), 0)
 
 
-
+# EXAMPLE ON HOW TO USE ARDUINO CLASS
 if __name__=='__main__':
     print('Connecting...')
     arduino = Arduino()
     print('Sending an Event:')
     conds=['Left','right','hor']
-##    for i in range(0,len(conds)):
-##        arduino.event(conds[i])
-##        arduino.wait()
-##        time.sleep(2)
     for i in range(0,len(conds)):
         arduino.event(conds[i])
-        while arduino.isWaiting():
-            time.sleep(.1)
+        while arduino.isWaiting(): # TOUCH ONE OF THE BUTTONS ON THE OC BOX
+            time.sleep(.1) 
         time.sleep(2)
         
-    #arduino.wait()
     if arduino.session.tot():
         print('writing to file...')
         arduino.session.toFile('session')

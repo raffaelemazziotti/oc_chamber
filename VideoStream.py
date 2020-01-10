@@ -5,6 +5,8 @@ from threading import Thread
 import cv2
 import time
 
+# THIS CLASS MANAGES THE RASPBERRY PI CAMERA CONNECTION
+
 class PiVideoStream:
     def __init__(self, resolution=(320, 240), framerate=32):
         # initialize the camera and stream
