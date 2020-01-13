@@ -1,5 +1,5 @@
 // This is the main script
-// load this script into Arduino UNO to contro the OC box
+// load this script into Arduino UNO to control the OC box
 // To test the proper functionality of the OC box write INPUT COMMANDS on the serial monitor
 //
 // INPUT COMMANDS: 
@@ -17,11 +17,12 @@
 //  22  Dot Stim Right [reverse criterion] -stub [One dot on the right - reward on the other side]
 //  50  Recharge [recharge syringe pump]
 //  51  Refill [push continuously the syringe pump]
-//////////////
+//  0   Stop 
+///////////////////////////////////
          
 int cdx;
 int csx;
-//////////////////// BUTTONS CAPACITIVE THRESHOLD (set this value using skinnerCapacitiveTest.ino) 
+//////////////////// BUTTONS CAPACITIVE THRESHOLDs (set this value using skinnerCapacitiveTest.ino) 
 int thrsx=200;
 int thrdx=200;
 //////////////////////////// PERMANENCE OF STIMULUS AFTER THE RESPONSE [milliseconds]
