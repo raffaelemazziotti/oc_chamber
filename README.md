@@ -22,26 +22,37 @@ Connect all the components as described in [figures/diagram_scheme.png](https://
 
 To install the software in the Raspberry Pi just download or copy the entire code in a folder of the Raspian OS.  
 
-Required libraries:
+### Required libraries
+
+Python
 
 * [picamera](https://picamera.readthedocs.io/en/release-1.13/)
 * [pySerial](https://pythonhosted.org/pyserial/)
 * [openCV](https://pypi.org/project/opencv-python/)
 * [Tkinter](https://tkdocs.com/tutorial/install.html)
 
-Compile and load on the Arduino UNO the sketch called [skinner.ino](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinner)
+Arduino
+
+* [CapacitiveSensor](https://playground.arduino.cc/Main/CapacitiveSensor/)
+* [Adafruit_NeoPixel](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use)
+* [Stepper](https://www.arduino.cc/en/reference/stepper)
+
+### Arduino Configuration
+Compile and load on the [Arduino UNO](https://store.arduino.cc/arduino-uno-rev3) the sketch called [skinner.ino](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinner)
+
+### Capacitive Sensors calibration
+To calibrate [capacitive sensors](https://en.wikipedia.org/wiki/Capacitive_sensing) thresholds load the Arduino sketch called [skinnerCapacitiveTest](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinnerCapacitiveTest). This function just prints on the serial port capacitive sensor values. It is helpful to set the proper threshold value to detect mouse touches.
+
+### Running Python code
 
 To run the code type in terminal:
 
 ```python3
+cd path\of\oc_chamber\folder\
 python3 cvConditioningTracking.py
 ```
 
-Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5 .
-
-## Capacitive Sensors calibration
-To calibrate capacitive sensors threshold the Arduino sketch called [skinnerCapacitiveTest](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinnerCapacitiveTest) is used.
-This function just prints on the serial port capacitive sensor values. It is helpful to set the proper threshold value to detect mouse touches.
+Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
 
 ## Keyboard Shortcuts
 
