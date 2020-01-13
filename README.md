@@ -66,7 +66,7 @@ The rest of the lines contain
 
 ## Authors
 
-* [**Raffaele Mazziotti**](https://github.com/raffaelemazziotti) PhD
+* [**Raffaele Mazziotti**](https://github.com/raffaelemazziotti)
 * **Giulia Sagona**  
 * [**Leonardo Lupori**](https://github.com/leonardolupori)
 * **Virginia Martini**
