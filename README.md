@@ -96,4 +96,4 @@ Detailed description of the apparatus can be found here:
 
 ## Contacts
 
-For any info don't hesitate to contact us at raffaele.mazziotti@in.cnr.it
+For any info and troubleshooting don't hesitate to contact us at raffaele.mazziotti@in.cnr.it
