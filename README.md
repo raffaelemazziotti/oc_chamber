@@ -20,7 +20,7 @@ In addition you need:
 
 Connect all the components as described in [figures/diagram_scheme.png](https://github.com/raffapaz/oc_chamber/blob/master/figures/diagram_scheme.png)
 
-To install the software in the Raspberry Pi just download or copy the entire code in a folder of the Raspian OS.  
+To install the software in the Raspberry Pi(RPI) just download or copy the entire code in a folder of the Raspian OS.  
 
 ### Required libraries
 
@@ -38,9 +38,11 @@ Arduino
 * [Stepper](https://www.arduino.cc/en/reference/stepper)
 
 ### Arduino Configuration
+
 Compile and load on the [Arduino UNO](https://store.arduino.cc/arduino-uno-rev3) the sketch called [skinner.ino](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinner)
 
 ### Capacitive Sensors calibration
+
 To calibrate [capacitive sensors](https://en.wikipedia.org/wiki/Capacitive_sensing) thresholds load the Arduino sketch called [skinnerCapacitiveTest](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinnerCapacitiveTest). This function just prints on the serial port capacitive sensor values. It is helpful to set the proper threshold value to detect mouse touches.
 
 ### Running Python code
@@ -53,6 +55,10 @@ python3 cvConditioningTracking.py
 ```
 
 Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
+
+## LCD oc_chamber
+
+To allow the use of more complex visual stimuli you can find a backbone version of the code that works with an [LCD display](http://kookye.com/2016/08/01/kookye-3-5-touch-screen-for-raspberry-pi-display-monitor-480x320-lcd-touchscreen-kit-3-5lcd-pi-2-board-case/). To run the code [Psychopy2](https://www.psychopy.org/) is required. To install psychopy on RPI follow [these](https://www.psychopy.org/download.html) instructions. Once Psychopy is installed open cvConditioningTracking.py in the Psychopy IDE and run the code. This code contains a module called LCD.py that can be used to show selected images. For now, the code is a stub, an untested version and runs for demonstrative purposes.
 
 ## Keyboard Shortcuts
 
