@@ -9,7 +9,7 @@ import time
 
 def connect(port=None,baud=9600):
     if port is None:
-        obj = ports()
+        obj = ports() # fetch all the serial ports
         port = obj[0] # CONNECTS AUTOMATICALLY WITH THE FIRST SERIAL PORT
         
     connection = serial.Serial(port,baud,bytesize=8, parity='N', stopbits=1, timeout=None, rtscts=0)  # open serial port

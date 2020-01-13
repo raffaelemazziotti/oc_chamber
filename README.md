@@ -79,7 +79,7 @@ The rest of the lines contain
   * timestamp - timmestamp
   * x - x coordinate
   * y - y coordinate
-  * event - type of event (both,simple)
+  * event - type of event (both,left,right)
 
 ## Authors
 
