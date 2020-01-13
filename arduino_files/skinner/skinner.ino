@@ -1,12 +1,15 @@
-// PUB_VER
+// This is the main script
+// load this script into Arduino UNO to contro the OC box
+// To test the proper functionality of the OC box write INPUT COMMANDS on the serial monitor
+//
 // INPUT COMMANDS: 
 //  4   Reward
 //  3   Dot Stim Both [ Double dots - No wrong response ]
 //  1   Dot Stim Left [One dot on the left]
 //  2   Dot Stim Right [One dot on the right]
-//  5   LCD - BOTH buttons trigger a reward
-//  6   LCD - LEFT button triggers a reward
-//  7   LCD - RIGHT button triggers a reward
+//  5   LCD - BOTH no stimuli are shown but both buttons trigger a reward
+//  6   LCD - LEFT no stimuli are shown but left button triggers a reward
+//  7   LCD - RIGHT no stimuli are shown but right button triggers a reward
 //  13  Dot Stim Both [Extinction] -stub [No reward]
 //  11  Dot Stim Left [Extinction] -stub [One dot on the left - No reward]
 //  12  Dot Stim Right [Extinction] -stub [One dot on the right - No reward]
@@ -18,7 +21,7 @@
          
 int cdx;
 int csx;
-//////////////////// BUTTONS CAPACITIVE THRESHOLD  
+//////////////////// BUTTONS CAPACITIVE THRESHOLD (set this value using skinnerCapacitiveTest.ino) 
 int thrsx=200;
 int thrdx=200;
 //////////////////////////// PERMANENCE OF STIMULUS AFTER THE RESPONSE [milliseconds]

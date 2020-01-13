@@ -1,49 +1,34 @@
 
+// This file contains the code dedicated to capacitive sensor and tone control 
 #include <CapacitiveSensor.h>
-const int buzzer = 7; //buzzer to arduino pin 7
-const int recharger = 12; // che anche reset
-//CapacitiveSensor   licker = CapacitiveSensor(3,12);        // 20M resistor between pins 3 & 2, pin 2 is sensor pin, add a wire and or foil if desired
-CapacitiveSensor   dx = CapacitiveSensor(3,4);        // 10M resistor between pins
-CapacitiveSensor   sx = CapacitiveSensor(2,5);        // 10M resistor between pins
-int capTime= 10; // time integration for se 
 
-void initButtons(){
-  pinMode(buzzer, OUTPUT);
-  digitalWrite(recharger, HIGH);
-  delay(200); 
-  pinMode(recharger, OUTPUT);
-}
+const int buzzer = 7; //buzzer connected to pin 7
+const int tone_correct = 3300; // frequency in Hz of 'correct' tone
+const int tone_wrong = 2700; // frequency in Hz of 'wrong' tone
 
+// capacitive sensors initialization
+CapacitiveSensor   dx = CapacitiveSensor(3,4);        // Right capacitive sensor with 25M resistor between pins
+CapacitiveSensor   sx = CapacitiveSensor(2,5);        // Left capacitive sensor with 25M resistor between pins
+int capTime= 10; // capacitive function time integration  
+
+// Functions to check capacitive sensors
 int checkDx(){
-  //dx.reset_CS_AutoCal();
   return  dx.capacitiveSensor(capTime);
 }
 
 int checkSx(){
-  //sx. reset_CS_AutoCal();
   return  sx.capacitiveSensor(capTime);
 }
 
-//void recalbtn(){
-  //dx = CapacitiveSensor(3,4);
-  //sx = CapacitiveSensor(3,5);
-  //digitalWrite(resetPin,LOW);
-//}
-
-
- 
-//int checkReward(){
-  //return  licker.capacitiveSensor(10);
-//}
+// Tones
 
 void correct(){
-  tone(buzzer, 3300); // 
+  tone(buzzer, tone_correct); // 
   delay(100);   
   noTone(buzzer);
 }
-
 void wrong(){
-  tone(buzzer, 2700); // 
+  tone(buzzer, tone_wrong); // 
   delay(100);     
   noTone(buzzer);
 }
@@ -56,18 +41,4 @@ void warning(){
   noTone(buzzer);
 }
 
-
-void btnCheckRecharge(){
-  if (!digitalRead(recharger)){
-    correct();
-    Serial.print("Recharging...");
-    delay(1000);
-    while (digitalRead(recharger)){
-      recharge();
-    }
-    correct();
-    Serial.println("end.");
-    delay(1000);
-  }
-}
 

@@ -1,18 +1,20 @@
+// This file contains the code to control Adafruit NeoPixel LED matrix
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
   #include <avr/power.h>
 #endif
 
-#define PIN 6
+#define PIN 6 // connected to pin 6
 
+// setting variables
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(64, PIN, NEO_GRB + NEO_KHZ800);
 
 int brightness =60;
 int redIntensity = 255;
-int blueIntensity=255;  // 0.22 cd/m2
+int blueIntensity=255;  // 0.9 cd/m2
 int greenIntensity = 255;
 
-
+// initialization
 void ledInit(){
   randomSeed(analogRead(0));
   strip.begin();
@@ -25,40 +27,9 @@ void setBright(int bright){
   strip.setBrightness(bright);
 }
 
+// LEFT and RIGHT dot stimuli
 void drawRight(){
   drawBlueDot(6,6);
-}
-
-void drawLineH(){
-  drawBlueDot(1,2);
-  drawBlueDot(2,2);
-  drawBlueDot(3,2);
-  drawBlueDot(4,2);
-  drawBlueDot(5,2);
-  drawBlueDot(6,2);
-
-  drawBlueDot(1,5);
-  drawBlueDot(2,5);
-  drawBlueDot(3,5);
-  drawBlueDot(4,5);
-  drawBlueDot(5,5);
-  drawBlueDot(6,5);
-}
-
-void drawLineV(){
-  drawBlueDot(2,1);
-  drawBlueDot(2,2);
-  drawBlueDot(2,3);
-  drawBlueDot(2,4);
-  drawBlueDot(2,5);
-  drawBlueDot(2,6);
-
-  drawBlueDot(5,1);
-  drawBlueDot(5,2);
-  drawBlueDot(5,3);
-  drawBlueDot(5,4);
-  drawBlueDot(5,5);
-  drawBlueDot(5,6);
 }
 
 void drawLeft(){
@@ -131,61 +102,8 @@ int matrix2number(int row, int column, int matrixOrientation){
   return ledNumber;
 }
 
-void line2number(int *lineIndexes, int startingPixelRow, int startingPixelColumn, int orientation, int lineLength, int matrixOrientation){
-  
-  // Cycle for all the pixels
-  switch(orientation){
-    case 0:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow,startingPixelColumn+i,matrixOrientation);
-      }
-      break;
-    case 45:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow-i,startingPixelColumn+i,matrixOrientation);
-      }
-      break;
-    case 90:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow-i,startingPixelColumn,matrixOrientation);
-      }
-      break;
-    case 135:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow-i,startingPixelColumn-i,matrixOrientation);
-      }
-      break;
-    case 180:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow,startingPixelColumn-i,matrixOrientation);
-      }
-      break;
-    case -135:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow+i,startingPixelColumn-i,matrixOrientation);
-      }
-      break;
-    case -90:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow+i,startingPixelColumn,matrixOrientation);
-      }
-      break;
-    case -45:
-      for(int i=0; i<lineLength; i++){
-        lineIndexes[i] = matrix2number(startingPixelRow+i,startingPixelColumn+i,matrixOrientation);
-      }
-      break;
-  }
-}
 
-void drawLine(int *lineIndexes, int lineLength , int R, int G, int B){
-
-  for(int i=0; i<lineLength; i++){
-    strip.setPixelColor(lineIndexes[i],R,G,B);
-  }
-  strip.show();
-}
-
+// switch all LED off
 void clearScreen(){
     for(int i=0;i<strip.numPixels();i++){
       strip.setPixelColor(i,0, 0, 0);    
@@ -193,11 +111,4 @@ void clearScreen(){
     strip.show();
 }
 
-void square2number(int *squareIndexes, int startingPixelRow, int startingPixelColumn, int width, int height, int matrixOrientation){
-  for(int w=0; w<width; w++){
-    for(int h=0; h<height; h++){
-      squareIndexes[(w*height)+h] = matrix2number(startingPixelRow+h,startingPixelColumn+w,matrixOrientation);
-    }
-  }
-}
 

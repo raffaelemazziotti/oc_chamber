@@ -10,14 +10,14 @@ import numpy
 import os
 import cooTracker as trk
 
-# load the GUI with test preferences
+# load the GUI with procedure preferences
 frm = form.Form() 
 prefs =frm.results()
 if not prefs:
     print('Aborted by user.')
     sys.exit()
 
-# set this variable  TRAINING or PERMUTATION 
+# set this variable PERMUTATION or TRAINING (assisted procedure)
 task = PERMUTATION   
 # COMPUTER VISION PARAMETERS
 deltaThresh=50 
@@ -81,7 +81,6 @@ if recording:
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
     out = cv2.VideoWriter( os.path.join(videopath,time.strftime("%Y%m%d_%H%M%S-") + filename +'.avi'), fourcc, framerate, resolution )
 
-# LCD - open screen window
 
 currentTime=time.time()
 prevTime = time.time()
@@ -172,7 +171,7 @@ while True:
             counter=0
             TTLactive=True
             ttl=0
-            # LCD - REFRESH DISPLAY
+            
         else:
             if arduino.isWaiting():
                 if ttl=='left': # or ttl=='vert' or ttl=='many':
@@ -189,7 +188,7 @@ while True:
         print('TTL')
         ttl = trainer.next(arduino.session)
         print(ttl)
-        # LCD - SHOW STIMULUS
+
         arduino.event(ttl)
         counter=0
         TTLactive=False
@@ -212,7 +211,8 @@ while True:
     elif key==ord('s'):
         arduino.event('stop')
         TTLactive=False
-        
+
+# Releasing resources and closing   
 if recording:
     out.release()
 if arduino.session.tot() and prefs['filename']:

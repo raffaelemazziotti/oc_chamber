@@ -6,7 +6,8 @@ Here we describe a fully 3D printable device that is able to perform operant con
 ## Assembling & Installation
 
 You can find 3D printed models [here](https://github.com/raffaelemazziotti/oc_chamber/tree/master/3D_models) or [here](https://www.thingiverse.com/thing:3975752).  
-In [figures/EXPLODED VIEW.jpg](https://github.com/raffapaz/oc_chamber/blob/master/figures/EXPLODED%20VIEW.jpg) there is an intuitive diagram of the assembling scheme.
+In [figures/EXPLODED VIEW.jpg](https://github.com/raffaelemazziotti/oc_chamber/blob/master/figures/EXPLODED%20VIEW.jpg) there is an intuitive diagram of the assembling scheme.
+We printed all the components using Cura 4.0 with a medium resolution (100 µm), a speed of 90 mm/s and an infill of 20%. The design of the OC chamber is quite simple so almost all the printers are sufficiently precise to successfully print the entire chamber.
 
 A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing)
 
@@ -28,7 +29,7 @@ Required libraries:
 * [openCV](https://pypi.org/project/opencv-python/)
 * [Tkinter](https://tkdocs.com/tutorial/install.html)
 
-Compile and load on the Arduino UNO the sketch called [skinner.ino](https://github.com/raffapaz/oc_chamber/tree/master/arduino_files/skinner)
+Compile and load on the Arduino UNO the sketch called [skinner.ino](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinner)
 
 To run the code type in terminal:
 
@@ -37,6 +38,10 @@ python3 cvConditioningTracking.py
 ```
 
 Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5 .
+
+## Capacitive Sensors calibration
+To calibrate capacitive sensors threshold the Arduino sketch called [skinnerCapacitiveTest](https://github.com/raffaelemazziotti/oc_chamber/tree/master/arduino_files/skinnerCapacitiveTest) is used.
+This function just prints on the serial port capacitive sensor values. It is helpful to set the proper threshold value to detect mouse touches.
 
 ## Keyboard Shortcuts
 
@@ -65,12 +70,12 @@ The rest of the lines contain
 * **Giulia Sagona**  
 * [**Leonardo Lupori**](https://github.com/leonardolupori)
 * **Virginia Martini**
-* **Tommaso Pizzorusso**  
+* [**Tommaso Pizzorusso**](https://www.researchgate.net/profile/Tommaso_Pizzorusso)
 
 ## References
 
 Detailed description of the apparatus can be found here:
-[Fully 3D printable device for automated operant conditioning in the mouse](https://docs.google.com/document/d/1ROyHVp2HN-OSPP7uKdv-rDPUn_NWunvdGDlKdQuhvm4/edit?usp=sharing)
+[3D printable device for automated operant conditioning in the mouse](https://docs.google.com/document/d/1ROyHVp2HN-OSPP7uKdv-rDPUn_NWunvdGDlKdQuhvm4/edit?usp=sharing)
 
 ## Contacts
 

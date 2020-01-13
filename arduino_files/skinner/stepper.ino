@@ -1,37 +1,36 @@
+// This file contains the code to control reward delivery
 #include "Stepper.h"
 #define STEPS 32   // Number of steps per revolution of Internal shaft
-//int  Steps2Take;  // 2048 = 1 Revolution
+//int  Steps2Take  Number of steps per revolution of Internal shaft 
+// 2048 = 1 Revolution, 256=7 microliters
+int REWARD = 256; // number of steps during reward
+
+// Stepper initialization
 Stepper small_stepper(STEPS, 8, 10, 9, 11);
 
+// low level stepper movements
 void moveCW(int Steps2Take){
   small_stepper.setSpeed(600); //Max seems to be 700
-  //Steps2Take  =  256;  // Rotate CW
   small_stepper.step(Steps2Take);
-  //delay(1000); 
-  //break;
 }
 
 void moveCCW(int Steps2Take){
   small_stepper.setSpeed(500); //Max seems to be 700
-  //Steps2Take  =  -256;  // Rotate CW
   small_stepper.step(-Steps2Take);
-  //delay(2000); 
- // break;
 }
 
+// high levele movements
 void reward(){
-  moveCW(256);
+  moveCW(REWARD);
 }
 
+// move piston back
 void recharge(){
-  //rechargingON();
   moveCCW(2048);
-  //rechargingOFF();
 }
 
+// move push piston 
 void fill(){
-  //rechargingON();
   moveCW(1024);
-  //rechargingOFF();
 }
 

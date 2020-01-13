@@ -1,15 +1,15 @@
-// This script is used to test capacitive buttons
-// and prints using serial port values detected by capacitive sensors
+// This script is used to calibrate capacitive buttons
+// It's helpful to set a proper threshold level of the capacitive sensors
+// It prints sensor capacitive sensor values using serial port 
 
 #include <CapacitiveSensor.h>
-
 
 CapacitiveSensor   right = CapacitiveSensor(3,4);       
 CapacitiveSensor   left = CapacitiveSensor(2,5); 
 
 int buzzer=7; // buzzer pin number
-int tonehz = 200; 
-int threshold = 500;
+int tonehz = 200;  // tone frequency
+int threshold = 500; // threshold
 long val;
 
 void setup() 
@@ -19,8 +19,8 @@ void setup()
 
 void loop() 
 {
-  // change between "left" and "right" sensor to print 
-  // values from the corrispondent button
+  // change between "left"[sx] and "right"[dx] sensor to print 
+  // values from the corrisponding button
   val=right.capacitiveSensor(10);
   Serial.println(val);
   if (val>threshold){
