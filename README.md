@@ -50,7 +50,7 @@ To calibrate [capacitive sensors](https://en.wikipedia.org/wiki/Capacitive_sensi
 To run the code type in terminal:
 
 ```python3
-cd path\of\oc_chamber\folder\
+cd path\\of\\oc_chamber\\folder\\
 python3 cvConditioningTracking.py
 ```
 
