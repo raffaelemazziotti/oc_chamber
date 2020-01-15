@@ -11,6 +11,25 @@ We printed all the components using Cura 4.0 with a medium resolution (100 µm),
 
 A list of all the components can be found here: [Bill of materials](https://docs.google.com/spreadsheets/d/19AH2Pe1oMEcGUEE4mrs1yGA2-vNfwtRM7asQJUQdpgM/edit?usp=sharing)
 
+### 3D printed parts
+
+* arena: main arena
+* arena_holes: main arena with holes on the floor
+* barrier_posterior: posterior barrier for jumpig mice
+* frontal_wall_LED: interface wall for LED matrix
+* frontal_wall_LCD: interface wall for LCD screen
+* mask_dots: mask for LED matrix
+* touch_sensor: button
+* CAMERA
+  * cam_barrier: camera holder with frontal barrrier for jumping mice
+  * cam_ladder: 3d printed arm
+  * cam_holder: camera holder
+  
+* DELIVERY
+  * delivery_base: syringe and motor holder 
+  * delivery_motor2thread: thread to motor adapter
+  * delivery_piston: syringe piston
+
 In addition you need:
 
 * a 1000 µF capacitor
