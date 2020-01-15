@@ -13,23 +13,23 @@ A list of all the components can be found here: [Bill of materials](https://docs
 
 ### 3D printed parts
 
-* OC CHAMBER
-  * arena: main arena
-  * arena_holes: main arena with holes on the floor
-  * barrier_posterior: posterior barrier for jumpig mice
-  * frontal_wall_LED: interface wall for LED matrix
-  * frontal_wall_LCD: interface wall for LCD screen
-  * mask_dots: mask for LED matrix
-  * touch_sensor: button
-* CAMERA
-  * cam_barrier: camera holder with frontal barrrier for jumping mice
-  * cam_ladder: 3d printed arm
-  * cam_holder: camera holder
+* **OC CHAMBER**
+  * **arena:** main arena
+  * **arena_holes:** main arena with holes on the floor
+  * **barrier_posterior:** posterior barrier for jumpig mice
+  * **frontal_wall_LED:** interface wall for LED matrix
+  * **frontal_wall_LCD:** interface wall for LCD screen
+  * **mask_dots:** mask for LED matrix
+  * **touch_sensor:** button
+* **CAMERA**
+  * **cam_barrier:** camera holder with frontal barrrier for jumping mice
+  * **cam_ladder:** 3d printed arm
+  * **cam_holder:** camera holder
   
-* DELIVERY
-  * delivery_base: syringe and motor holders
-  * delivery_motor2thread: thread to motor adapter
-  * delivery_piston: syringe piston
+* **DELIVERY**
+  * **delivery_base:** syringe and motor holders
+  * **delivery_motor2thread:** thread to motor adapter
+  * **delivery_piston:** syringe piston
 
 In addition you need:
 
@@ -78,7 +78,7 @@ Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia
 
 ## LCD_oc_chamber
 
-To allow the use of more complex visual stimuli you can find a backbone version of the code that works with an [LCD display](http://kookye.com/2016/08/01/kookye-3-5-touch-screen-for-raspberry-pi-display-monitor-480x320-lcd-touchscreen-kit-3-5lcd-pi-2-board-case/). To run the code [Psychopy2](https://www.psychopy.org/) is required. To install psychopy on RPI follow [these](https://www.psychopy.org/download.html) instructions. Once Psychopy is installed open cvConditioningTracking.py in the Psychopy IDE and run the code. This code contains a module called LCD.py that can be used to show selected images. For now, the code is a stub, an untested version and runs for demonstrative purposes.
+To allow the use of more complex visual stimuli you can find a backbone version of the code that works with an [LCD display](http://kookye.com/2016/08/01/kookye-3-5-touch-screen-for-raspberry-pi-display-monitor-480x320-lcd-touchscreen-kit-3-5lcd-pi-2-board-case/). To run the code [Psychopy2](https://www.psychopy.org/) is required. To install Psychopy on RPI follow [these](https://www.psychopy.org/download.html) instructions. Once Psychopy is installed open cvConditioningTracking.py in the Psychopy IDE and run the code. This code contains a module called LCD.py that can be used to show selected images. For now, the code is a stub, an untested version and runs for demonstrative purposes.
 
 ## Keyboard Shortcuts
 
