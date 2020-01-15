@@ -73,7 +73,7 @@ cd path\of\oc_chamber\folder\
 python3 cvConditioningTracking.py
 ```
 
-Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
+Alternatively open cvConditioningTracking.py in [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
 
 ## LCD_oc_chamber
 
