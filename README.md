@@ -75,6 +75,9 @@ python3 cvConditioningTracking.py
 ```
 
 Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
+The user can customize some of the low-level parameters of the experiments by editing the value of the variables in the first 25 lines of the file [cvConditioningTracking](https://github.com/raffaelemazziotti/oc_chamber/blob/master/cvConditioningTracking.py).py. A more detailed explanation of those parameters is given in the file itself.
+
+![cazzi](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png)
 
 ## LCD_oc_chamber
 
@@ -82,7 +85,7 @@ To allow the use of more complex visual stimuli you can find a backbone version 
 
 ## Keyboard Shortcuts
 
-* **p**: exit from program
+* **p**: exit from program (p keypress skips camera calibration when in the "camera calibration" phase, otherwise it closes the program)
 * **s**: stop a trial
 
 ## Dataset & Data Analysis
