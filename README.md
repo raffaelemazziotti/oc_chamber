@@ -84,7 +84,7 @@ The chamber can run experiments in 2 modes: **Training** mode and **Permutation*
 
 At the start of the experiments, the user is prompted with a GUI that collects some basic informations about the experiments that is about to run.
 
-![Screenshot of the GUI for selecting some basic experiment informations.](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png =300x)
+![Screenshot of the GUI for selecting some basic experiment informations.](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png){ width=50% }
 
 * **Subject:** A string containing an identifier for the current mouse
 * **File Path:** Location to save experiment file. The output consists of a .txt file containing the dataset of the experiment as described in the [dataset](#dataset) section. The user can browse for a location on the PC
