@@ -10,23 +10,27 @@ import numpy
 import os
 import cooTracker as trk
 
-# load the GUI with procedure preferences
+#------ EDIT THE FOLLOWING CONSTANTS TO TUNE YOUR EXPERIMENT ------
+
+# CHOOSE THE EXPERIMENTAL TASK
+task = PERMUTATION   # scan be PERMUTATION or TRAINING (assisted procedure)
+# COMPUTER VISION PARAMETERS
+deltaThresh=50      # THRESHOLD OF BITMAP IMAGE FOR MOUSE SEGMENTATION
+smallestObj=300     # MINMINUM NUMBER OF PIXELS TO CONFIRMS THAT'S A MOUSE
+biggestObj=20000    # MAXIMUM NUMBER OF PIXELS TO CONFIRMS THAT'S A MOUSE
+# TRACKING MARKER (customize the appearence of the circle showing the mouse's position)
+radius=25           
+color=(0,0,255)
+thickness=1
+
+#------ END OF EDITABLE CODE ------
+
+# load the GUI to select procedure preferences
 frm = form.Form() 
 prefs =frm.results()
 if not prefs:
     print('Aborted by user.')
     sys.exit()
-
-# set this variable PERMUTATION or TRAINING (assisted procedure)
-task = PERMUTATION   
-# COMPUTER VISION PARAMETERS
-deltaThresh=50 
-smallestObj=300     
-biggestObj=20000 
-# TRACKING MARKER
-radius=25
-color=(0,0,255)
-thickness=1
 
 # IMAGE RESOLUTION
 resolution=(208,208)
@@ -35,7 +39,6 @@ history=int(prefs['history'])
 # ACTIVE ZONE BORDER 
 lev=resolution[0]*float(prefs['level'])
 posTracker= True
-
 
 criterion = prefs['criterion'] # Number of frames required to trigger a trial
 if prefs['recfile']:
@@ -53,7 +56,7 @@ if prefs['filename']:
 
 # maximal framerate
 framerate=30
-conditions = prefs['conditions']
+conditions = prefs['conditions'] # left,right,both
 
 # CAMERA INITIALIZATION
 print('Initializing:')
@@ -174,9 +177,9 @@ while True:
             
         else:
             if arduino.isWaiting():
-                if ttl=='left': # or ttl=='vert' or ttl=='many':
+                if ttl=='left':
                     cv2.putText(frame,ttl,(int((resolution[0]/2)-60),40), cv2.FONT_HERSHEY_PLAIN, 1,(0,255,255),2,cv2.LINE_AA)
-                elif ttl=='right': # or ttl=='hor' or ttl=='few':
+                elif ttl=='right':
                     cv2.putText(frame,ttl,(int((resolution[0]/2)+40),40), cv2.FONT_HERSHEY_PLAIN, 1,(0,255,255),2,cv2.LINE_AA)
             cv2.circle(frame,(X,Y),radius,(255,0,0),thickness+1)
             counter=0

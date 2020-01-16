@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*- #
-
 import time
 import os
 import random
@@ -13,9 +10,9 @@ import numpy as np
 
 # MENAGAMENTS OF TRIALS AND PROCEDURES
 
-TRAINING = 1 # ASSISTED PROCEDURE (see paper)
-PERMUTATION = 2 # BALANCED PERMUTATED PROCEDURE 
-EXT = '.txt' # Output file extension
+TRAINING = 1        # ASSISTED PROCEDURE (see paper)
+PERMUTATION = 2     # BALANCED PERMUTATED PROCEDURE 
+EXT = '.txt'        # Output file extension
 
 # Trial contains the representation of a trial
 class Trial():
