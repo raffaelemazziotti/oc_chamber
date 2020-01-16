@@ -74,10 +74,24 @@ cd path\of\oc_chamber\folder\
 python3 cvConditioningTracking.py
 ```
 
-Alternatively open cvConditioningTracking.py in IDLE [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
+Alternatively open cvConditioningTracking.py in [IDLE](https://en.wikipedia.org/wiki/IDLE) IDE and push F5.
+
 The user can customize some of the low-level parameters of the experiments by editing the value of the variables in the first 25 lines of the file [cvConditioningTracking](https://github.com/raffaelemazziotti/oc_chamber/blob/master/cvConditioningTracking.py).py. A more detailed explanation of those parameters is given in the file itself.
 
-![cazzi](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png)
+### Experiment info GUI
+
+At the start of the experiments, the user is prompted with a GUI that collects some basic informations about the experiments that is about to run.
+
+![Screenshot of the GUI for selecting some basic experiment informations.](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png)
+
+* **Subject:** A string containing an identifier for the current mouse
+* **File Path:** Location to save experiment files a .txt file containing the dataset of the experiment as described [here](#dataset). The user can browse for a location on the PC
+* **REC file name:** A string containing the name to use for saving the Video recording
+* **REC file path:** Location to save video recording (). The user can browse for a location on the PC
+* **Conditions:** Experimental conditions (left, rigth, both), divided by a comma. All the conditions specified here will be presented in a random order.
+* **Criterion:** Number of frames necessary for the mouse to stay in the active area to activate a trial (30 = 1 sec)
+* **Level:** Select the vertical position of the line segregating the active area of the chamber from the inactive area. The value is normalized to the chamber height (0 = the bottom of the chamber, 1 = Top of the chamber, 0,5(default) = middle of the chamber)
+* **Calibration:** Number of frames to be used at the beginning of the experiment for camera calibration. Calibrating the camera at the beginning of the experiment is important to better track the mouse over the background.
 
 ## LCD_oc_chamber
 
@@ -88,7 +102,7 @@ To allow the use of more complex visual stimuli you can find a backbone version 
 * **p**: exit from program (p keypress skips camera calibration when in the "camera calibration" phase, otherwise it closes the program)
 * **s**: stop a trial
 
-## Dataset & Data Analysis
+## Dataset
 
 [Dataset](https://github.com/raffaelemazziotti/oc_chamber/tree/master/dataset) folder contains our raw data, described in this [paper](#references), with 6 subjects. Each subject is contained in its own folder and coded using the scheme: CAGE-LABEL-GENO. Furthermore, there are two Jupyter Notebooks with an example on how you can read txt output files in Python as [pandas](https://pandas.pydata.org/) dataframes.
 
