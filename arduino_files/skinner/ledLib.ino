@@ -11,7 +11,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(64, PIN, NEO_GRB + NEO_KHZ800);
 
 int brightness =60;
 int redIntensity = 255;
-int blueIntensity=255;  // 0.9 cd/m2
+int blueIntensity=255;  // 0.9 cd/m2, for brightness = 60
 int greenIntensity = 255;
 
 // initialization

@@ -70,7 +70,7 @@ To calibrate [capacitive sensors](https://en.wikipedia.org/wiki/Capacitive_sensi
 To run the code type in terminal:
 
 ```python3
-cd path\of\oc_chamber\folder\
+cd /home/pi/oc_chamber/         // replace with the folder path containing the scpript
 python3 cvConditioningTracking.py
 ```
 
@@ -84,12 +84,12 @@ The chamber can run experiments in 2 modes: **Training** mode and **Permutation*
 
 At the start of the experiments, the user is prompted with a GUI that collects some basic informations about the experiments that is about to run.
 
-![Screenshot of the GUI for selecting some basic experiment informations.](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png){ width=50% }
+![Screenshot of the GUI for selecting some basic experiment informations.](https://github.com/raffaelemazziotti/oc_chamber/blob/master/%20gui_example.png)
 
-* **Subject:** A string containing an identifier for the current mouse
-* **File Path:** Location to save experiment file. The output consists of a .txt file containing the dataset of the experiment as described in the [dataset](#dataset) section. The user can browse for a location on the PC
-* **REC file name:** A string containing the name to use for saving the video recording
-* **REC file path:** Location to save the video recording with an overlay containing the mouse position and the active area. The user can browse for a location on the PC
+* **Subject:** A string containing an identifier for the current mouse. If left empty no file is saved.
+* **File Path:** Location to save experiment file. The output consists of two .txt files containing the dataset of the experiment as described in the [dataset](#dataset) section,stored inside DATA and DATAtracker folder. The user can browser for a location on the PC, if the field is left empty the default is the current working directory.
+* **REC file name:** A string containing the name to use for saving the video recording. If left empty no file is saved.
+* **REC file path:** Location to save the video recording with an overlay containing the mouse position and the active area. The user can browser for a location on the PC, if the field is left empty the default is the current working directory.
 * **Conditions:** Experimental conditions. The list of stimuli that will be presented in the experiment. One or more conditions, divided by a comma, can be specified:
 
   * right: right dot
@@ -98,7 +98,7 @@ At the start of the experiments, the user is prompted with a GUI that collects s
 
   All the conditions specified here will be presented in a random order.
 
-* **Criterion:** Number of frames necessary for the mouse to stay in the active area to activate a trial. 20frames = 1 sec
+* **Criterion:** Number of frames necessary for the mouse to stay in the active area to activate a trial. 20 frames = 1 sec
 * **Level:** Select the vertical position of the line segregating the active area of the chamber from the inactive one. The value is normalized to the chamber height. 0 = bottom of the chamber, 1 = top of the chamber, 0.5(default) = middle of the chamber
 * **Calibration:** Number of frames to be used at the beginning of the experiment for camera calibration. Calibrating the camera at the beginning of the experiment is important to better track the mouse over the background.
 
@@ -142,4 +142,8 @@ Detailed description of the apparatus can be found here:
 
 ## Contacts
 
-For any info and troubleshooting don't hesitate to contact us at raffaele.mazziotti@in.cnr.it
+For any info and troubleshooting don't hesitate to contact us at
+
+* raffaele.mazziotti@in.cnr.it
+* leonardo.lupori@sns.it
+* giulia.sagona@in.cnr.it

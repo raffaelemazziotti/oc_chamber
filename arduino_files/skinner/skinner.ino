@@ -18,19 +18,22 @@
 //  50  Recharge [recharge syringe pump]
 //  51  Refill [push continuously the syringe pump]
 //  0   Stop 
-///////////////////////////////////
-         
-int cdx;
-int csx;
-//////////////////// BUTTONS CAPACITIVE THRESHOLDs (set this value using skinnerCapacitiveTest.ino) 
+
+//------ EDIT THE PARAMETERS BELOW TO CUSTOMIZE YOUR EXPERIMENT ------         
+
+// BUTTONS CAPACITIVE THRESHOLDs (set this value using skinnerCapacitiveTest.ino) 
 int thrsx=200;
 int thrdx=200;
-//////////////////////////// PERMANENCE OF STIMULUS AFTER THE RESPONSE [milliseconds]
+// PERMANENCE OF STIMULUS AFTER THE RESPONSE [milliseconds]
 int stimPermanenceRight = 2500;
 int stimPermanenceWrong = 1000;
-///////////////////////////////
+
+//------ END OF EDITABLE CODE ------
+
 unsigned long startTime;
 unsigned long reactionTime;
+int cdx;
+int csx;
 
 int resetPin=12;
 
@@ -46,13 +49,15 @@ void loop() {
       
     
     int cmd = Serial.parseInt();
+    // If a serial message is available, it is parsed in an integer and the following if, 
+    // elseif statements guide the arduino behavior accordingly 
     
-    if(cmd==4){ // REWARD
+    if(cmd==4){                             // REWARD
       correct();
       Serial.println("reward");
       reward();
       clearScreen();
-    }else if (cmd ==1){  // Dot Stim Left
+    }else if (cmd ==1){                     // Dot Stim Left
       clearScreen();
       drawLeft();
       startTime=millis();
@@ -83,7 +88,7 @@ void loop() {
         }
       }
       clearScreen();
-    }else if (cmd == 6){  // LCD Stim Left
+    }else if (cmd == 6){                          // LCD Stim Left
       startTime=millis();
       while (true){
         cdx = checkDx();
@@ -110,7 +115,7 @@ void loop() {
         }
       }
       clearScreen();
-    } else if (cmd ==11){  // Dot Stim Left [Extinction] 
+    } else if (cmd ==11){                     // Dot Stim Left [Extinction] 
       clearScreen();
       drawLeft();
       startTime=millis();
@@ -141,7 +146,7 @@ void loop() {
         }
       }
       clearScreen();
-    }else if (cmd ==21){  // Dot Stim Left [Reversed criterion]
+    }else if (cmd ==21){                    // Dot Stim Left [Reversed criterion]
       clearScreen();
       drawLeft();
       startTime=millis();
@@ -171,7 +176,7 @@ void loop() {
         }
       }
       clearScreen();
-    } else if(cmd==2){ // Dot Stim Right
+    } else if(cmd==2){                        // Dot Stim Right
       clearScreen();
       drawRight();
       startTime=millis();
@@ -202,7 +207,7 @@ void loop() {
         }
       }
       clearScreen();
-    } else if(cmd==7){ // LCD Stim Right
+    } else if(cmd==7){                          // LCD Stim Right
       startTime=millis();
       while (true){
         cdx = checkDx();
@@ -228,7 +233,7 @@ void loop() {
         }
       }
       clearScreen();
-    }else if(cmd==12){ // Dot Stim Right [Extinction]
+    }else if(cmd==12){                            // Dot Stim Right [Extinction]
       clearScreen();
       drawRight();
       startTime=millis();
@@ -259,7 +264,7 @@ void loop() {
         }
       }
       clearScreen();
-    }else if(cmd==22){ // Dot Stim Right [Reversed criterion]
+    }else if(cmd==22){                            // Dot Stim Right [Reversed criterion]
       clearScreen();
       drawRight();
       startTime=millis();
@@ -290,7 +295,7 @@ void loop() {
         }
       }
       clearScreen();
-    }else if(cmd==3){ // Dot Stim Both
+    }else if(cmd==3){                           // Dot Stim Both
       clearScreen();
       drawRight();
       drawLeft();
@@ -323,7 +328,7 @@ void loop() {
           }
       }
       clearScreen();
-    }else if(cmd==5){ // LCD Stim Both
+    }else if(cmd==5){                                   // LCD Stim Both
       startTime=millis();
        while (true){
         cdx = checkDx();
@@ -352,7 +357,7 @@ void loop() {
           }
       }
       clearScreen();
-    }else if(cmd==13){ // Dot Stim Both [extinction]
+    }else if(cmd==13){                        // Dot Stim Both [extinction]
       clearScreen();
       drawRight();
       drawLeft();
@@ -366,7 +371,6 @@ void loop() {
             correct();
             Serial.print("both_SX : ");
             Serial.println(reactionTime,DEC);
-            //reward();
             delay(stimPermanenceRight);
             
           }else if(cdx >= thrdx){
@@ -385,7 +389,7 @@ void loop() {
           }
       }
       clearScreen();
-    }else if(cmd==50){
+    }else if(cmd==50){                      // Recharge the reward tube
       Serial.println("recharging...");
       int count = 0;
       while (true){
@@ -401,7 +405,7 @@ void loop() {
             count++;
           }
       }
-    }else if(cmd==51){
+    }else if(cmd==51){                    // Refill the reward tube
       Serial.println("refilling...");
       int count = 0;
       while (true){

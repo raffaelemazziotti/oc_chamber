@@ -1,4 +1,3 @@
-# import the necessary packages
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 from threading import Thread
@@ -6,6 +5,8 @@ import cv2
 import time
 
 # THIS CLASS MANAGES THE RASPBERRY PI CAMERA CONNECTION
+# For more information about this code visit this page:
+# https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
 
 class PiVideoStream:
     def __init__(self, resolution=(320, 240), framerate=32):

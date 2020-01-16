@@ -11,23 +11,27 @@ import os
 import cooTracker as trk
 from lcd import LCD as lcd
 
-# load the GUI with test preferences
+#------ EDIT THE FOLLOWING CONSTANTS TO TUNE YOUR EXPERIMENT ------
+
+# CHOOSE THE EXPERIMENTAL TASK
+task = PERMUTATION   # scan be PERMUTATION or TRAINING (assisted procedure)
+# COMPUTER VISION PARAMETERS
+deltaThresh=50      # THRESHOLD OF BITMAP IMAGE FOR MOUSE SEGMENTATION
+smallestObj=300     # THE MINIMUM AREA FOR A VALID MOUSE CONTOUR
+biggestObj=20000    # THE MAXIMUM AREA FOR A VALID MOUSE CONTOUR
+# TRACKING MARKER (customize the appearence of the circle showing the mouse's position)
+radius=25           
+color=(0,0,255)
+thickness=1
+
+#------ END OF EDITABLE CODE ------
+
+# load the GUI to select procedure preferences
 frm = form.Form() 
 prefs =frm.results()
 if not prefs:
     print('Aborted by user.')
     sys.exit()
-
-# set this variable  TRAINING or PERMUTATION 
-task = PERMUTATION   
-# COMPUTER VISION PARAMETERS
-deltaThresh=50 
-smallestObj=300     
-biggestObj=20000 
-# TRACKING MARKER
-radius=25
-color=(0,0,255)
-thickness=1
 
 # IMAGE RESOLUTION
 resolution=(208,208)
@@ -175,7 +179,7 @@ while True:
             TTLactive=True
             ttl=0
             # LCD - REFRESH DISPLAY
-            lcd.refresh()
+            lcd.flip()
         else:
             if arduino.isWaiting():
                 if ttl=='left': # or ttl=='vert' or ttl=='many':
@@ -193,7 +197,8 @@ while True:
         ttl = trainer.next(arduino.session)
         print(ttl)
         # LCD - SHOW STIMULUS
-        lcd.stim(ttl)
+        lcd.stim(ttl,what=KANITSA_TRIANGLE)
+        
         
         arduino.event(ttl)
         counter=0

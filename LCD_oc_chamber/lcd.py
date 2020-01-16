@@ -21,7 +21,7 @@ class LCD:
         self.size = (.6,1) # stimulus size in norm units
     
     # draw stimulus at location ["both":two visual stimuli "left": stimulus in the left side "right": stimulus in the right side]
-    # what is the path to image
+    # what is the path to image 
     def stim(self,where="both", what=WAVES):
         if where == "both":
             self.stimBoth(what)

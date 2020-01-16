@@ -95,7 +95,7 @@ class coolist():
             filename=time.strftime("%Y%m%d_%H%M-tracker-") + filename + EXT
             
         if path is None:
-            path = os.path.join('/home/pi/Documents/cvConditioningData/','trackerDATA')
+            path = os.path.join(os.getcwd(),'trackerDATA')
             
         if not os.path.exists(path):
             os.makedirs(path)

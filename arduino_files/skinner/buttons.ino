@@ -2,9 +2,9 @@
 // This file contains the code dedicated to capacitive sensor and tone control 
 #include <CapacitiveSensor.h>
 
-const int buzzer = 7; //buzzer connected to pin 7
-const int tone_correct = 3300; // frequency in Hz of 'correct' tone
-const int tone_wrong = 2700; // frequency in Hz of 'wrong' tone
+const int buzzer = 7;           //buzzer connected to pin 7
+const int tone_correct = 3300;  // frequency in Hz of 'correct' tone
+const int tone_wrong = 2700;    // frequency in Hz of 'wrong' tone
 
 // capacitive sensors initialization
 CapacitiveSensor   dx = CapacitiveSensor(3,4);        // Right capacitive sensor with 25M resistor between pins

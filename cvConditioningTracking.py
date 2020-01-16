@@ -16,8 +16,8 @@ import cooTracker as trk
 task = PERMUTATION   # scan be PERMUTATION or TRAINING (assisted procedure)
 # COMPUTER VISION PARAMETERS
 deltaThresh=50      # THRESHOLD OF BITMAP IMAGE FOR MOUSE SEGMENTATION
-smallestObj=300     # MINMINUM NUMBER OF PIXELS TO CONFIRMS THAT'S A MOUSE
-biggestObj=20000    # MAXIMUM NUMBER OF PIXELS TO CONFIRMS THAT'S A MOUSE
+smallestObj=300     # THE MINIMUM AREA FOR A VALID MOUSE CONTOUR
+biggestObj=20000    # THE MAXIMUM AREA FOR A VALID MOUSE CONTOUR
 # TRACKING MARKER (customize the appearence of the circle showing the mouse's position)
 radius=25           
 color=(0,0,255)
