@@ -32,7 +32,7 @@ class Arduino():
         msg=msg.strip()
         res = msg.split(':')
         if len(res)==2:
-            ## gestione risposte strane prima di assegnare il trial
+            ## Handles anomalous responses from the Arduino before assignin the trial
             if res[0] and any(res[0].lower().strip() in s for s in self.casey):
                 res[0]='yes'
             elif res[0] and any(res[0].lower().strip() in s for s in self.casen):
@@ -68,21 +68,36 @@ class Arduino():
         return self.answer.isAlive()
     
     # CONVENIENCE FUNCTION TO CONVERT STRINGS TO ARDUINO COMMANDS
+    # The Arduino commands are explained in the arduino_files\skinner.ino file
     def seq2cmd(self,argument):
         switcher = {
-            'l':'1','r':'2','b':'3','f':'5','m':'6','h':'7','v':'8',
-            'left':'1','right':'2','both':'3','few':'5','many':'6',
-            'hor':'7','vert':'8','stop':'0',
-            'el':'11','er':'12','eb':'13','eleft':'11','eright':'12','eboth':'13',
-            'rl':'21','rr':'22','rleft':'21','rright':'22',
+            'l':'1',
+            'r':'2',
+            'b':'3',
+            'left':'1',
+            'right':'2',
+            'both':'3',
+            'stop':'0',
+            'el':'11',
+            'er':'12',
+            'eb':'13',
+            'eleft':'11',
+            'eright':'12',
+            'eboth':'13',
+            'rl':'21', 
+            'rr':'22',
+            'rleft':'21',
+            'rright':'22',
             }
         return switcher.get(argument.lower(), 0)
     
     # CONVENIENCE FUNCTION TO CONVERT ARDUINO COMMANDS TO STRINGS
     def cmd2seq(self,argument):
         switcher = {
-            '1':'left','2':'right','3':'both','5':'few','6':'many'
-            ,'7':'hor','8':'vert','0':'stop'
+            '1':'left',
+            '2':'right',
+            '3':'both',
+            '0':'stop'
             }
         return switcher.get(argument.lower(), 0)
 

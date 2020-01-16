@@ -216,7 +216,7 @@ class Trainer():
 # EXAMPLE ON HOW TO USE TRAINER CLASS
 if __name__=='__main__':
      numTrials = 30 # NUMBER OF TRIALS 
-     # SIMULATED RESPONSE WITH KNOWS SUCCESS PROBABILITY
+     # SIMULATED RESPONSE WITH KNOWN SUCCESS PROBABILITY
      response1 = ('yes','yes','yes','yes','yes','yes','yes','yes','no','no')
      trials = ListTrial() # INITIALIZE TRIAL LIST
      trainer = Trainer(['left','right'],type=TRAINING) # INITIALIZE TRAINER
@@ -224,10 +224,7 @@ if __name__=='__main__':
      print(trials.str(-1))
      for i in range(0,numTrials):
          tr=trainer.next(trials)
-         if tr=='left':
-             trials.add(Trial(tr, random.choice(response1)) )
-         elif tr=='right':
-             trials.add(Trial(tr, random.choice(response1)) )
+         trials.add(Trial(tr, random.choice(response1)) )
              
          print(trials.str(-1))
     # PERFORMANCES 

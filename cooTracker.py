@@ -1,26 +1,18 @@
 import time
-from math import hypot
 import numpy as np
 import os
 import csv
-import random
-import imutils
 import cv2
 
-SUM=1
-MEAN=2
-MEDIAN=3
-DIFFS=4
-MAX=5
-MIN=6
-EXT='.txt'  # Output file extension
 
-# THIS CLASS MANAGE TRACKING DATA 
-#
+# Output file extension
+EXT='.txt'  
 
 
+# THIS CLASS MANAGES TRACKING DATA 
 
-# COORDINATES WITH TIMESTAMP
+
+# COORDINATES WITH TIMESTAMP AND INFO
 class coo():
     def __init__(self,x=0,y=0,t=None,info='NaN'):
         self.x = x
@@ -75,8 +67,7 @@ class coolist():
     def tot(self):
         return len(self.coos)
     
-    # vettore xy    
-    
+    # RETURNS A LIST OF (X,Y) COORDINATES   
     def xy(self):
         res= list()
         for ci in self.coos:
@@ -89,47 +80,14 @@ class coolist():
     def y(self):
         return [y[1] for y in self.xy()]
     
-    # vettore time
-    
+    # RETURNS A LIST OF TIMESTAMPS
     def t(self):
         res= list()
         for ci in self.coos:
             res.append(ci.time)
         return res
-    
-    def path(self,mode = MEAN):
-        ptdiff = lambda p1,p2: (p1[0]-p2[0], p1[1]-p2[1])
-        diffs = map(ptdiff, zip(self.xy(),self.xy()[1:]))
-        eucli=[hypot(*d) for d in  diffs]
-        
-        if mode==SUM:
-            path = sum(eucli)
-        elif mode==MEAN:
-            path = np.mean(eucli)
-        elif mode==MEDIAN:
-            path = np.median(eucli)
-        elif mode==DIFFS:
-            path = eucli
-            
-        return path
-    
-    def speed(self,mode=MEAN):
-        time = np.diff(self.t())
-        path = self.path(DIFFS)
-        
-        if mode==MEAN:
-            res = np.mean(path/time)
-        elif mode==MEDIAN:
-            res = np.median(path/time)
-        elif mode==MAX:
-            res = np.max(path/time)
-        elif mode==MIN:
-            res = np.min(path/time)
-        elif mode==DIFFS:
-            res = path/time
-        
-        return res
-        
+
+    # WRITES TRACKING FILE  
     def write(self,filename=None,path=None):
         if filename is None:
             filename=time.strftime("%Y%m%d_%H%M-tracker") + EXT
@@ -146,7 +104,8 @@ class coolist():
             f.write('rect\t' + str(self.rect[0]) + '\t' + str(self.rect[1]) + '\t' + str(self.rect[2]) + '\t' + str(self.rect[3]) + '\t' + "\n") 
             for t in self.coos:
                 f.write(t.tostr() + "\n") 
-                
+
+    # READS TRACKING FILE           
     def read(self,filepath=None):
         with open(filepath , 'rb') as csvfile:
             txt = csv.reader(csvfile,delimiter='\t')
@@ -157,7 +116,7 @@ class coolist():
                 self.add(int(l[1]),int(l[2]),t=float(l[0]),info=l[3])
 
 
-# FIND ARENA BORDERS USING TEMPLATE MATCHING 
+#FIND ARENA BORDERS USING TEMPLATE MATCHING
 def templateArena(img,template='template.jpg'):
     template = cv2.imread(template,0)
     wi, he = template.shape[::-1]
@@ -176,7 +135,9 @@ def templateArena(img,template='template.jpg'):
 
 if __name__=='__main__':
     c = coolist(rect=(2,2,10,7))
-    print(c)
+    c.append(coo(5,7,info="first"))
+    c.append(coo(10,7,info="second"))
+    print(c.xy())
     
 
 
