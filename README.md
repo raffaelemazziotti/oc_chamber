@@ -102,6 +102,14 @@ At the start of the experiments, the user is prompted with a GUI that collects s
 * **Level:** Select the vertical position of the line segregating the active area of the chamber from the inactive one. The value is normalized to the chamber height. 0 = bottom of the chamber, 1 = top of the chamber, 0.5(default) = middle of the chamber
 * **Calibration:** Number of frames to be used at the beginning of the experiment for camera calibration. Calibrating the camera at the beginning of the experiment is important to better track the mouse over the background.
 
+### Other Settings
+Other customization options are available by editing the first lines of the following files:
+
+* **cvConditioningTracking** (to change computer vision parameters and type of procedure between TRAINING or PERMUTATION )
+* **skinner** (stimulus permanence, button threshold)
+* **skinnerCapacitiveSensor** (change the button to check and the threshold)
+
+
 ## LCD_oc_chamber
 
 To allow the use of more complex visual stimuli you can find a backbone version of the code that works with an [LCD display](http://kookye.com/2016/08/01/kookye-3-5-touch-screen-for-raspberry-pi-display-monitor-480x320-lcd-touchscreen-kit-3-5lcd-pi-2-board-case/). To run the code [Psychopy2](https://www.psychopy.org/) is required. To install Psychopy on RPI follow [these](https://www.psychopy.org/download.html) instructions. Once Psychopy is installed open cvConditioningTracking.py in the Psychopy IDE and run the code. This code contains a module called LCD.py that can be used to show selected images. For now, the code is a stub, an untested version and runs for demonstrative purposes.
