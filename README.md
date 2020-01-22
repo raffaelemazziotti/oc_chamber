@@ -103,12 +103,12 @@ At the start of the experiments, the user is prompted with a GUI that collects s
 * **Calibration:** Number of frames to be used at the beginning of the experiment for camera calibration. Calibrating the camera at the beginning of the experiment is important to better track the mouse over the background.
 
 ### Other Settings
+
 Other customization options are available by editing the first lines of the following files:
 
 * **cvConditioningTracking** (to change computer vision parameters and type of procedure between TRAINING or PERMUTATION )
 * **skinner** (stimulus permanence, button threshold)
 * **skinnerCapacitiveSensor** (change the button to check and the threshold)
-
 
 ## LCD_oc_chamber
 
