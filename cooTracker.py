@@ -117,6 +117,7 @@ class coolist():
 
 
 #FIND ARENA BORDERS USING TEMPLATE MATCHING
+# returns the boundaries of the arena (x,y,x+w,y+h)
 def templateArena(img,template='template.jpg'):
     template = cv2.imread(template,0)
     wi, he = template.shape[::-1]

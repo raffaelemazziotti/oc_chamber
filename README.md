@@ -128,7 +128,7 @@ To allow the use of more complex visual stimuli you can find a backbone version 
   * Answer - the answer provided by the subject (both_sx,both_dx,yes,no)
   * RT - Reaction time
   * Time - Timestamp
-* **data_track:** contains the real time tracking of the animal position. The first row represents the borders of the arena (rect x y width height).
+* **data_track:** contains the real time tracking of the animal position. The first row represents the borders of the arena (rect x, y, x+width, y+height).
 The rest of the lines contain
   * timestamp - timmestamp
   * x - x coordinate
