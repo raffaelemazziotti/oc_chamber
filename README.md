@@ -69,8 +69,8 @@ To calibrate [capacitive sensors](https://en.wikipedia.org/wiki/Capacitive_sensi
 
 To run the code type in terminal:
 
-```python3
-cd \\home\pi\oc_chamber\         \\ replace with the folder path containing the scpript
+```bash
+cd \home\pi\oc_chamber\         \\ or replace with the folder path containing the scpript
 python3 cvConditioningTracking.py
 ```
 
