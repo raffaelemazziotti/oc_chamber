@@ -146,7 +146,7 @@ The rest of the lines contain
 ## References
 
 Detailed description of the apparatus can be found here:
-[3D printable device for automated operant conditioning in the mouse](https://docs.google.com/document/d/1ROyHVp2HN-OSPP7uKdv-rDPUn_NWunvdGDlKdQuhvm4/edit?usp=sharing)
+[3D printable device for automated operant conditioning in the mouse](https://www.eneuro.org/content/early/2020/04/06/ENEURO.0502-19.2020)
 
 ## Contacts
 
